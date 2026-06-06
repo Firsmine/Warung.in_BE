@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('store_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->decimal('price', 12, 2);
             $table->integer('stock');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

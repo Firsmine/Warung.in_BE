@@ -17,11 +17,11 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete();
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->string('address');
             $table->string('category');
-            $table->string('logo');
-            $table->boolean('is_open');
+            $table->string('logo')->nullable();
+            $table->boolean('is_open')->default(true);
             $table->timestamps();
         });
     }
